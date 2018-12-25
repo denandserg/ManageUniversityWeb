@@ -1,0 +1,19 @@
+<h1>Students</h1>
+<table *ngIf="students" class="table table-striped">
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Middle Name</td>
+      <td>Last Name</td>
+      <td>Logbook Number</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of students">
+    <td>{{t.firstName}}</td>
+    <td>{{t.middleName}}</td>
+    <td>{{t.lastName}}</td>
+    <td>{{t.phone}}</td>
+  </tr>
+  </tbody>
+</table>
