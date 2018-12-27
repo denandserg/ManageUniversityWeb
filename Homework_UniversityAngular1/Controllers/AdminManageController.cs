@@ -7,6 +7,7 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using University.AppContext;
+using University.WebApp.Helpers;
 
 namespace University.WebApp.Controllers
 {
@@ -20,8 +21,8 @@ namespace University.WebApp.Controllers
             db = context;
         }
 
-        [HttpGet]
-        public IEnumerable Get()
+        [HttpPost]
+        public IEnumerable Get([FromBody]GetToken token)
         {
             var adminMarkList = (from m in db.Marks
                 join s in db.Students
@@ -41,7 +42,15 @@ namespace University.WebApp.Controllers
                     ss.Name
                 }).ToList();
 
-            return adminMarkList;
+            //return adminMarkList;
+            TokenValidator validator = new TokenValidator();
+            var role = validator.getRole(token.token);
+            if (role.Equals("admin"))
+            {
+                return adminMarkList;
+            }
+            else
+                return null;
         }
 
 

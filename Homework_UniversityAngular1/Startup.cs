@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using University.AppContext;
 
 namespace Homework_UniversityAngular1
@@ -41,12 +42,19 @@ namespace Homework_UniversityAngular1
             //services.AddTransient<ITeachersRepository, TeachersRepository>();
             //services.AddTransient<ITeachSubjRepository, TeachSubjRepository>();
 
-
+            
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials().Build();
+                });
             });
         }
 
@@ -74,6 +82,7 @@ namespace Homework_UniversityAngular1
                     template: "{controller}/{action=Index}/{id?}");
             });
 
+            app.UseCors("EnableCORS");
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -83,6 +92,7 @@ namespace Homework_UniversityAngular1
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.StartupTimeout = new TimeSpan(0, 0, 300);
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });

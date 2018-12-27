@@ -8,6 +8,7 @@ using Domain.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using University.AppContext;
+using University.WebApp.Helpers;
 
 namespace UniverAngular.Controllers
 {
@@ -20,10 +21,9 @@ namespace UniverAngular.Controllers
             db = context;
         }
 
-        [HttpGet]
-        public IEnumerable Get()
+        [HttpPost]
+        public IEnumerable Get([FromBody]GetToken token)
         {
-
             var teacherMarkList = (from m in db.Marks
                 join s in db.Students
                     on m.Student.Id equals s.Id
@@ -43,8 +43,16 @@ namespace UniverAngular.Controllers
                     ss.Name
                 }).ToList();
 
-       
-            return teacherMarkList;
+            //return teacherMarkList;
+            TokenValidator validator = new TokenValidator();
+            var role = validator.getRole(token.token);
+            if (role.Equals("admin") || role.Equals("teacher"))
+            {
+                return teacherMarkList;
+            }
+            else
+                return null;
+
         }
         
     }
