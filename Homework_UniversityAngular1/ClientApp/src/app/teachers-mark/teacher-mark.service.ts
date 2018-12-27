@@ -11,6 +11,7 @@ export class DataService {
   }
 
   getTeachers() {
+    //this.http.post<any>(this.url, { "token": sessionStorage.getItem('currentUser') });
     return this.http.get(this.url);
   }
 }

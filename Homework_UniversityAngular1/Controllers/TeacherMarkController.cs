@@ -21,9 +21,9 @@ namespace UniverAngular.Controllers
         }
 
         [HttpGet]
-        public IEnumerable Get()
+        public IEnumerable Get([FromBody]string token)
+        //public IEnumerable Get([FromBody]string token)
         {
-
             var teacherMarkList = (from m in db.Marks
                 join s in db.Students
                     on m.Student.Id equals s.Id
@@ -43,7 +43,12 @@ namespace UniverAngular.Controllers
                     ss.Name
                 }).ToList();
 
-       
+
+            //if (!String.IsNullOrEmpty(token))
+                //return teacherMarkList;
+                //return new List<string> { token };
+            //else
+               // return new List<string> { "Error!" };
             return teacherMarkList;
         }
         

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { fakeBackendProvider } from './_helpers/index';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
@@ -30,6 +31,7 @@ import { routing } from './app.routing';
   declarations: [
     AppComponent,
     NavMenuComponent,
+    FooterComponent,
     CounterComponent,
     FetchDataComponent,
     AdminManageComponent,
@@ -68,7 +70,8 @@ import { routing } from './app.routing';
     },
 
     // providers used to create fake backend
-    fakeBackendProvider],
+   // fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  authenticationService: AuthenticationService;
+  curr_user: string;
 
   collapse() {
     this.isExpanded = false;
@@ -23,6 +26,10 @@ export class NavMenuComponent {
     else {
       return false;
     }
+  }
+
+  getUser() {
+    this.curr_user = this.authenticationService.currentUser();
   }
 }
 

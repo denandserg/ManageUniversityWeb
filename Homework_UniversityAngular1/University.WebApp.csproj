@@ -14,6 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
@@ -44,7 +45,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\University.AppContext\University.AppContext.csproj" />
-    <ProjectReference Include="..\University.BLL\University.BLL.csproj" />
     <ProjectReference Include="..\University.Domain\University.Domain.csproj" />
     <ProjectReference Include="..\University.Entities\University.Entities.csproj" />
     <ProjectReference Include="..\University.Repositories\University.Repositories.csproj" />
