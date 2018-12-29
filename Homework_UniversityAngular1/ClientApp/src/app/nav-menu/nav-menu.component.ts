@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { User } from '../_models';
+=======
+import { AuthenticationService } from '../_services/authentication.service';
+>>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,6 +12,8 @@ import { User } from '../_models';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  authenticationService: AuthenticationService;
+  curr_user: string;
 
   collapse() {
     this.isExpanded = false;
@@ -27,6 +33,7 @@ export class NavMenuComponent {
   }
 
   getUser() {
+<<<<<<< HEAD
     let obj: User = JSON.parse(sessionStorage.getItem('currentUser'));
     return obj.username;
   }
@@ -34,6 +41,9 @@ export class NavMenuComponent {
   getRole() {
     let obj: User = JSON.parse(sessionStorage.getItem('currentUser'));
     return obj.role;
+=======
+    this.curr_user = this.authenticationService.currentUser();
+>>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
   }
 }
 
