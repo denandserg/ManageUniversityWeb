@@ -21,14 +21,8 @@ namespace UniverAngular.Controllers
             db = context;
         }
 
-<<<<<<< HEAD
         [HttpPost]
         public IEnumerable Get([FromBody]GetToken token)
-=======
-        [HttpGet]
-        public IEnumerable Get([FromBody]string token)
-        //public IEnumerable Get([FromBody]string token)
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
         {
             var teacherMarkList = (from m in db.Marks
                 join s in db.Students
@@ -49,7 +43,6 @@ namespace UniverAngular.Controllers
                     ss.Name
                 }).ToList();
 
-<<<<<<< HEAD
             //return teacherMarkList;
             TokenValidator validator = new TokenValidator();
             var role = validator.getRole(token.token);
@@ -60,15 +53,6 @@ namespace UniverAngular.Controllers
             else
                 return null;
 
-=======
-
-            //if (!String.IsNullOrEmpty(token))
-                //return teacherMarkList;
-                //return new List<string> { token };
-            //else
-               // return new List<string> { "Error!" };
-            return teacherMarkList;
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
         }
         
     }

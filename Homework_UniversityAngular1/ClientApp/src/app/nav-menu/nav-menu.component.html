@@ -7,11 +7,7 @@
         <span class='icon-bar'></span>
         <span class='icon-bar'></span>
       </button>
-<<<<<<< HEAD
       <a class='navbar-brand' [routerLink]='["/"]'>Manage University</a>
-=======
-      <a class='navbar-brand' [routerLink]='["/"]'>Manage University <br/>{{curr_user}}</a>
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
 
     </div>
     <div class="navbar-collapse collapse" [ngClass]='{ "in": isExpanded }'>
@@ -22,7 +18,6 @@
               <span class='glyphicon glyphicon-home'></span> Home
             </a>
           </li>
-<<<<<<< HEAD
 
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class='glyphicon glyphicon-user'></span> Admin <span class="caret"></span></a>
@@ -44,18 +39,6 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class='glyphicon glyphicon-education'></span> Student <span class="caret"></span></a>
             <ul class="dropdown-menu" *ngIf="getRole()=='student'">
-=======
-          <li [routerLinkActive]='["link-active"]'>
-            <a [routerLink]='["/adminmanage"]' (click)='collapse()'>
-              <span class='glyphicon glyphicon-user'></span> Admin Panel
-            </a>
-          </li>
-
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class='glyphicon glyphicon-education'></span> Student <span class="caret"></span></a>
-            <ul class="dropdown-menu">
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
               <li [routerLinkActive]='["link-active"]'>
                 <a [routerLink]='["/studentshedule"]' (click)='collapse()'>
                   <span class='glyphicon glyphicon-education'></span> Shedule
@@ -77,11 +60,7 @@
 
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class='glyphicon glyphicon-education'></span>  Teacher <span class="caret"></span></a>
-<<<<<<< HEAD
             <ul class="dropdown-menu" *ngIf="getRole()=='teacher'">
-=======
-            <ul class="dropdown-menu">
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
               <li [routerLinkActive]='["link-active"]'>
                 <a [routerLink]='["/teachershedule"]' (click)='collapse()'>
                   <span class='glyphicon glyphicon-education'></span> Shedule
@@ -97,16 +76,9 @@
 
           <li [routerLinkActive]='["link-active"]'>
             <a [routerLink]='["/login"]' (click)='collapse()'>
-<<<<<<< HEAD
               <div *ngIf="showLogin(); then logout else login"> Logout</div>
               <ng-template #logout><span class='glyphicon glyphicon-log-out'></span> Logout <br />Hello again, {{getUser()}}! </ng-template>
               <ng-template #login><span class='glyphicon glyphicon-log-in'></span> Login</ng-template>
-=======
-              <span class='glyphicon glyphicon-education'></span>
-              <div *ngIf="showLogin(); then logout else login">Logout</div>
-              <ng-template #logout>Logout</ng-template>
-              <ng-template #login>Login</ng-template>
->>>>>>> 2bc316c2645994e0bb63e759a4070c321633e3c8
             </a>
           </li>
         </ul>
